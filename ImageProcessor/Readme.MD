@@ -1,0 +1,2 @@
+### Note
+Be sure to create a Cognitive Services Account in the subscription prior to running Terraform. The Account does not need to be used but it "flips the switch" for accepting the TOS for a given subscription. Alternatively, the Azure CLI could be used to provide this attestation

@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31521.260
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageProcessor.Functions", "ImageProcessor.Functions\ImageProcessor.Functions.csproj", "{12B696BD-246E-4EDD-83D6-092265449B80}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{D0D2A55C-FF47-4B4A-91DF-9357543E4092}"
+	ProjectSection(SolutionItems) = preProject
+		infrastructure\main.tf = infrastructure\main.tf
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageProcessor.Web", "ImageProcessor.Web\ImageProcessor.Web.csproj", "{ADE7C081-9EB3-4D98-96E1-83FFCFC0C9C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12B696BD-246E-4EDD-83D6-092265449B80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12B696BD-246E-4EDD-83D6-092265449B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12B696BD-246E-4EDD-83D6-092265449B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12B696BD-246E-4EDD-83D6-092265449B80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADE7C081-9EB3-4D98-96E1-83FFCFC0C9C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADE7C081-9EB3-4D98-96E1-83FFCFC0C9C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADE7C081-9EB3-4D98-96E1-83FFCFC0C9C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADE7C081-9EB3-4D98-96E1-83FFCFC0C9C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D9BE7A8B-5BB4-43B1-9886-CC1E1F7EF0F9}
+	EndGlobalSection
+EndGlobal
