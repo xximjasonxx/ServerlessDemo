@@ -16,7 +16,7 @@ namespace ImageProcessorDurable.Functions
         [FunctionName("SaveImage")]
         public async Task SaveImage(
             [ActivityTrigger] IDurableActivityContext context,
-            [Blob("original", FileAccess.Write, Connection = "StorageAccountConnectionString")] BlobContainerClient container)
+            [Blob("original", FileAccess.Write, Connection = "AzureWebJobsStorage")] BlobContainerClient container)
         {
             var input = context.GetInput<ProcessImageInput>();
             var byteData = Convert.FromBase64String(input.RawBlobData);
@@ -29,7 +29,7 @@ namespace ImageProcessorDurable.Functions
         [FunctionName("ResizeImage")]
         public async Task ResizeImage(
             [ActivityTrigger] IDurableActivityContext context,
-            [Blob("resized", FileAccess.Write, Connection = "StorageAccountConnectionString")] BlobContainerClient container)
+            [Blob("resized", FileAccess.Write, Connection = "AzureWebJobsStorage")] BlobContainerClient container)
         {
             var input = context.GetInput<ProcessImageInput>();
             var byteData = Convert.FromBase64String(input.RawBlobData);

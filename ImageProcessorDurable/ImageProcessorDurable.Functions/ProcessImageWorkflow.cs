@@ -12,7 +12,7 @@ namespace ImageProcessorDurable.Functions
     {
         [FunctionName("ProcessImageWorkflow")]
         public async Task RunWorkflow(
-            [BlobTrigger("raw/{name}", Connection = "StorageAccountConnectionString")]Stream myBlob,
+            [BlobTrigger("raw/{name}", Connection = "AzureWebJobsStorage")]Stream myBlob,
             [DurableClient]IDurableClient client,
             string name,
             ILogger logger)

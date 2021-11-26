@@ -7,8 +7,8 @@ resource appPlan 'Microsoft.Web/serverfarms@2021-02-01' = {
   name: 'plan-serverlessDemo-${suffix}'
   location: location
   sku: {
-    name: 'S1'
-    tier: 'Standard'
+    name: 'Y1'
+    tier: 'Dynamic'
   }
   kind: 'functionapp'
   properties: {
@@ -54,6 +54,18 @@ resource imageDataContainer 'Microsoft.Storage/storageAccounts/blobServices/cont
   }
 }
 
+resource cognitiveServices 'Microsoft.CognitiveServices/accounts@2021-04-30' = {
+  name: 'cogserverlessdemo${suffix}'
+  location: location
+  sku: {
+    name: 'S0'
+  }
+  kind: 'CognitiveServices'
+  properties: {
+    publicNetworkAccess: 'Enabled'
+  }
+}
+
 resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
   name: 'func-serverlessdemo-${suffix}'
   location: location
@@ -75,6 +87,14 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
         {
           name: 'FUNCTIONS_WORKER_RUNTIME'
           value: 'dotnet'
+        }
+        {
+          name: 'CognitiveServicesEndpoint'
+          value: '${cognitiveServices.properties.endpoint}'
+        }
+        {
+          name: 'CognitiveServicesKey'
+          value: listkeys(cognitiveServices.id, cognitiveServices.apiVersion).key1
         }
       ]
     }

@@ -11,15 +11,21 @@ namespace ImageProcessorDurable.Functions
 {
     public class CognitiveServicesFunctions
     {
+        private readonly IConfiguration _configuration;
+
+        public CognitiveServicesFunctions(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         [FunctionName("GetImageIsProhibited")]
         public async Task<bool> GetImageIsProhibited(
             [ActivityTrigger]IDurableActivityContext context)
         {
             var byteArray = Convert.FromBase64String(context.GetInput<string>());
-            var client = new ComputerVisionClient(
-                new ApiKeyServiceClientCredentials("41e0aa0504ad413499994cfa7aeae616"))
+            var client = new ComputerVisionClient(new ApiKeyServiceClientCredentials(_configuration["CognitiveServicesApi"]))
             {
-                Endpoint = "https://eastus2.api.cognitive.microsoft.com/"
+                Endpoint = _configuration["CognitiveServicesEndpoint"]
             };
 
             using (var memStream = new MemoryStream(byteArray))
